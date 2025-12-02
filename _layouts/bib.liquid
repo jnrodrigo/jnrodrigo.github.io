@@ -1,5 +1,11 @@
 ---
 ---
+<style>
+  .pub-thumbnail {
+    border: none !important;
+    border-radius: 0 !important;
+  }
+</style>
 <div class="row">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
@@ -27,7 +33,7 @@
       {% endif %}
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          <img class="preview pub-thumbnail" src="{{ entry.preview }}">
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
@@ -35,8 +41,8 @@
             loading="eager"
             path=entry_path
             sizes = "200px"
-            class="preview z-depth-1 rounded"
-            zoomable=true
+            class="preview pub-thumbnail"
+            zoomable=false
             avoid_scaling=true
             alt=entry.preview
           %}
